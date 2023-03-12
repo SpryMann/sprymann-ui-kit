@@ -368,3 +368,12 @@ template {
 [hidden] {
   display: none;
 }
+
+ul,
+li {
+  list-style: none;
+}
+
+#root {
+  padding: 3rem;
+}

@@ -1,0 +1,91 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #d0d5dd;
+  border-radius: 0.8rem;
+  padding: 1rem 1.4rem;
+  min-height: 4.4rem;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  outline: none;
+
+  @media screen and (min-width: 1024px) {
+    cursor: pointer;
+  }
+}
+
+.container:focus {
+  border-color: #d6bbfb;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px #f4ebff;
+}
+
+.value,
+.placeholder {
+  flex-grow: 1;
+  font-size: 1.6rem;
+  user-select: none;
+}
+
+.value {
+  font-weight: 500;
+  color: #101828;
+}
+
+.placeholder,
+.caret {
+  color: #667085;
+}
+
+.options {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 0;
+  z-index: 100;
+  display: none;
+  border: 1px solid #eaecf0;
+  border-radius: 0.8rem;
+  padding: 0.6rem;
+  max-height: 32rem;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08),
+    0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+  overflow-y: auto;
+
+  &Show {
+    display: block;
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  border-radius: 0.6rem;
+  padding: 1rem 1rem 1rem 0.8rem;
+  cursor: pointer;
+
+  &Selected {
+    .optionCheck {
+      opacity: 100%;
+      visibility: visible;
+    }
+  }
+
+  &Highlighted {
+    background: #f9fafb;
+  }
+
+  &Value {
+    flex-grow: 1;
+    font-weight: 500;
+  }
+
+  &Check {
+    color: #7f56d9;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.3);
+  }
+}
