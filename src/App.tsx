@@ -1,59 +1,47 @@
 import { useState } from 'react';
 
-import { MultiSelect, Select } from './components';
+import { Tabs } from './components';
 
-const options = [
+const tabs = [
   {
-    label: 'Olivia Rhye',
-    value: 'olivia',
+    id: 1,
+    label: 'My details',
   },
   {
-    label: 'Phoenix Baker',
-    value: 'phoenix',
+    id: 2,
+    label: 'Profile',
   },
   {
-    label: 'Lana Steiner',
-    value: 'lana',
+    id: 3,
+    label: 'Password',
   },
   {
-    label: 'Demi Wilkinson',
-    value: 'demi',
+    id: 4,
+    label: 'Team',
   },
   {
-    label: 'Candice Wu',
-    value: 'candice',
-  },
-  {
-    label: 'Natali Craig',
-    value: 'natali',
-  },
-  {
-    label: 'Drew Capo',
-    value: 'drew',
+    id: 5,
+    label: 'Plan',
   },
 ];
 
 function App() {
-  const [value, setValue] = useState<(typeof options)[0] | undefined>(
-    options[0]
-  );
-  const [multipleValue, setMultipleValue] = useState([options[0]]);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   return (
     <div>
-      <Select
-        placeholder="Select team member"
-        options={options}
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
+      <Tabs
+        selectedTabId={selectedTabId}
+        tabs={tabs}
+        onChange={(newId) => setSelectedTabId(newId)}
       />
-      <br />
-      <MultiSelect
-        placeholder="Select team members"
-        options={options}
-        value={multipleValue}
-        onChange={(newValue) => setMultipleValue(newValue)}
-      />
+      <div>
+        {selectedTabId === tabs[0].id ? <p>First Tab</p> : null}
+        {selectedTabId === tabs[1].id ? <p>Second Tab</p> : null}
+        {selectedTabId === tabs[2].id ? <p>Third Tab</p> : null}
+        {selectedTabId === tabs[3].id ? <p>Fourth Tab</p> : null}
+        {selectedTabId === tabs[4].id ? <p>Fifth Tab</p> : null}
+      </div>
     </div>
   );
 }
