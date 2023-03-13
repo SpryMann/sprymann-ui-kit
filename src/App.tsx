@@ -1,47 +1,24 @@
-import { useState } from 'react';
+import { Slider } from './components';
 
-import { Tabs } from './components';
-
-const tabs = [
+const items = [
   {
     id: 1,
-    label: 'My details',
+    imageSource:
+      'https://images.unsplash.com/photo-1678595439308-b383185f35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    imageAlt: 'Sunset',
   },
   {
     id: 2,
-    label: 'Profile',
-  },
-  {
-    id: 3,
-    label: 'Password',
-  },
-  {
-    id: 4,
-    label: 'Team',
-  },
-  {
-    id: 5,
-    label: 'Plan',
+    imageSource:
+      'https://images.unsplash.com/photo-1678582911712-43934e3fe86d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80',
+    imageAlt: 'Cyan beach',
   },
 ];
 
 function App() {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-
   return (
-    <div>
-      <Tabs
-        selectedTabId={selectedTabId}
-        tabs={tabs}
-        onChange={(newId) => setSelectedTabId(newId)}
-      />
-      <div>
-        {selectedTabId === tabs[0].id ? <p>First Tab</p> : null}
-        {selectedTabId === tabs[1].id ? <p>Second Tab</p> : null}
-        {selectedTabId === tabs[2].id ? <p>Third Tab</p> : null}
-        {selectedTabId === tabs[3].id ? <p>Fourth Tab</p> : null}
-        {selectedTabId === tabs[4].id ? <p>Fifth Tab</p> : null}
-      </div>
+    <div style={{ width: '100%', overflow: 'hidden' }}>
+      <Slider items={items} />
     </div>
   );
 }

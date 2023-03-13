@@ -1,0 +1,30 @@
+.container {
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.slider {
+  display: flex;
+  min-width: 100%;
+  transition: transform 0.2s linear;
+
+  &Swiping {
+    transition: none;
+  }
+
+  &Item {
+    flex-shrink: 0;
+    width: 100%;
+  }
+
+  &Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    user-select: none;
+    pointer-events: none;
+  }
+}
